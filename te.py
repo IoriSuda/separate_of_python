@@ -66,6 +66,7 @@ for i in range(folder_count):
 
 #cyphercodeを作る#
 c_number = 1
+cyphercode = []
 for i in range(total_lines):
     print('"' + country[i] + '", ',  end="")
     c_number += 1
