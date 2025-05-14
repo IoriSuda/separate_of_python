@@ -1,201 +1,20 @@
-text = """
+from pathlib import Path
 
-Y 
-A 
-Y 
-A 
-Y 
-Y 
-A 
-Y 
-Y 
+# 現在のスクリプトと同じ階層のパスを取得
+current_dir = Path(__file__).parent
 
-Y 
-A 
-A 
-Y 
-N 
-Y 
-Y 
-Y 
-A 
-A 
-Y 
-Y 
-A 
-A 
-Y 
+# 読みたいファイルのパスを作成
+file_path = current_dir / "c.txt"
 
-N 
-Y 
-A 
-
-Y 
-A 
-
-Y 
-A 
-A 
-Y 
-A 
-Y 
-Y 
-Y 
-N 
-Y 
-Y 
-N 
-Y 
-Y 
+# ファイルを読み込む
+content = file_path.read_text(encoding="utf-8")
 
 
-Y 
-Y 
-A 
-A 
-A 
-N 
-Y 
-
-A 
-Y 
-Y 
-Y 
-A 
-Y 
-Y 
-Y 
-Y 
-Y 
-
-Y 
-A 
-A 
-Y 
-A 
-
-Y 
-Y 
-A 
-A 
-A 
-A 
-Y 
-Y 
-Y 
-Y 
-Y 
-A 
-A 
-Y 
-
-A 
-A 
-A 
-Y 
-A 
 
 
-A 
-Y 
-Y 
-Y 
-A 
-Y 
-A 
-Y 
-N 
-Y 
-Y 
-A 
-Y 
-A 
-Y 
-Y 
-A 
-Y 
-
-A 
-Y 
-A 
-
-A 
-Y 
-Y 
-N 
-
-A 
-Y 
-Y 
-A 
-A 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-N 
-
-Y 
-
-
-Y 
-Y 
-Y 
-A 
-A 
-Y 
-Y 
-Y 
-Y 
-Y 
-Y 
-
-
-A 
-
-Y 
-A 
-A 
-Y 
-Y 
-Y 
-N 
-A 
-A 
-Y 
-A 
-Y 
-Y 
-A 
-
-
-Y 
-A 
-Y 
-A 
-Y 
-A 
-Y 
-Y 
-A 
-Y 
-
-A 
-A 
-Y 
-A 
-"""
 
 # 各行の先頭の1文字だけ取り出して出力
-for line in text.splitlines():
+for line in content.splitlines():
     if line: #空行チェック
         if line[0]=="Y" and line[1]==" ":
             print("Y")

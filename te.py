@@ -49,7 +49,7 @@ for i in range(folder_count):
 
     #国名出力
     content = readfile.read_text(encoding="utf-8").rstrip()
-    #print(content)
+    print(content)
 
 
     #ファイルの行数をカウント、出力する処理    
@@ -67,7 +67,7 @@ for i in range(folder_count):
 #cyphercodeを作る#
 c_number = 1
 for i in range(total_lines):
-    print("MATCH (c"+ str(c_number) + ":Country" + "{" + "name:" + '"' + country[i] + '"' + "})")
+    print('"' + country[i] + '", ',  end="")
     c_number += 1
 
 
