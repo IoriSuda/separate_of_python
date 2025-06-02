@@ -12,7 +12,7 @@ response = requests.get(url)
 if response.status_code == 200:
     # HTMLのパース
     soup = BeautifulSoup(response.text, 'html.parser')
-    
+
     # タイトルを取得
     value_elements = soup.find_all('span', class_="value")
 
