@@ -1,35 +1,24 @@
 import requests
 from bs4 import BeautifulSoup
-import re
 
-# 対象のURL
-url = 'https://digitallibrary.un.org/record/3959039?ln=en'
+# スクレイピング対象のURL
+url = 'https://example.com'
 
-# HTTPリクエストを送信
+# 1. requestsでHTMLを取得
 response = requests.get(url)
 
-# ステータスコードをチェック
+# ステータスコードを確認（200は成功）
 if response.status_code == 200:
-    # HTMLのパース
-    soup = BeautifulSoup(response.text, 'html.parser')
-    
-    # タイトルを取得
-    value_elements = soup.find_all('span', class_="value")
+    html = response.text
 
+    # 2. BeautifulSoupでHTMLを解析
+    soup = BeautifulSoup(html, 'html.parser')
 
-    for i, elem in enumerate(value_elements, start=1):
-        if i != 7:
-            #print(f"{i}番目のvalue要素:")
-            print(elem.text.strip())  # テキストだけを表示（空白削除）
-            #print('-' * 40)
-        else:
-            text = elem.text.strip()
-            number_ynanv = re.findall(r'\d+', text)
-            for num in number_ynanv:
-                print(num)
-
-
-
-    #print(f'ページのタイトル: {content_div}')
+    # 3. 必要な要素を抽出（例：h1タグの中身を取得）
+    span_tags1 = soup.find_all('title')
+    #span_tags2 = soup.find_all('value')
+    for tag in span_tags1:
+        print(tag.text)
+        #print(tag.text)
 else:
-    print(f'ページの取得に失敗しました (ステータスコード: {response.status_code})')
+    print(f"取得失敗: ステータスコード {response.status_code}")
