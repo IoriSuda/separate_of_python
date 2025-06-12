@@ -1,30 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
-# スクレイピング対象のURL
-url = 'https://example.com'
+url = 'https://digitallibrary.un.org/search?cc=Voting+Data&ln=en&as=1&rm=&sf=latest+first&so=d&rg=50&c=Voting+Data&c=&of=hb&fti=0&fct__2=General+Assembly&fct__9=Vote&fti=0&as_query=JTdCJTIyZGF0ZV9zZWxlY3RvciUyMiUzQSU3QiUyMmRhdGVUeXBlJTIyJTNBJTIyY3JlYXRpb25fZGF0ZSUyMiUyQyUyMmRhdGVQZXJpb2QlMjIlM0ElMjJhbGx5ZWFycyUyMiUyQyUyMmRhdGVGcm9tJTIyJTNBJTIyJTIyJTJDJTIyZGF0ZVRvJTIyJTNBJTIyJTIyJTdEJTJDJTIyY2xhdXNlcyUyMiUzQSU1QiU3QiUyMnNlYXJjaEluJTIyJTNBJTIydGl0bGUlMjIlMkMlMjJjb250YWluJTIyJTNBJTIyYWxsLXdvcmRzJTIyJTJDJTIydGVybSUyMiUzQSUyMktvcmVhJTJDJTIwRGVtb2NyYXRpYyUyMiUyQyUyMm9wZXJhdG9yJTIyJTNBJTIyQU5EJTIyJTdEJTJDJTdCJTIyc2VhcmNoSW4lMjIlM0ElMjJhbGwtZmllbGQlMjIlMkMlMjJjb250YWluJTIyJTNBJTIyYWxsLXdvcmRzJTIyJTJDJTIydGVybSUyMiUzQSUyMiUyMiUyQyUyMm9wZXJhdG9yJTIyJTNBJTIyQU5EJTIyJTdEJTVEJTdE&action_search=placeholder#searchresultsbox'
+res = requests.get(url)
+soup = BeautifulSoup(res.text, 'html.parser')
 
-# 1. requestsでHTMLを取得
-response = requests.get(url)
+table = soup.find('table', id="main-content")
 
-# ステータスコードを確認（200は成功）
-if response.status_code == 200:
-
-    # HTMLのパース
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    # タイトルを取得
-    value_elements = soup.find_all('span', class_="value")
+#なにがどう取れてるのかまったくわからん。
 
 
-    # 2. BeautifulSoupでHTMLを解析
-    soup = BeautifulSoup(html, 'html.parser')
 
-    # 3. 必要な要素を抽出（例：h1タグの中身を取得）
-    span_tags1 = soup.find_all('title')
-    #span_tags2 = soup.find_all('value')
-    for tag in span_tags1:
-        print(tag.text)
-        #print(tag.text)
-else:
-    print(f"取得失敗: ステータスコード {response.status_code}")
+
