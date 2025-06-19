@@ -269,4 +269,7 @@ BOLIVIA:
 今回のリスト: "BOLIVIA" (これは一致しています)
 注: 初回は"BOLIVIA (PLURINATIONAL STATE OF)"
 
+最初のリストの "ESWATINI" が、今回のリストでは "SWAZILAND" になっています。 → 順番が変わる
+
+191カ国のほうが収集しやすいけど、何が無いかをパッと見でわからない
 '''
