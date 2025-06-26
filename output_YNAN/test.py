@@ -49,9 +49,13 @@ def spelling_discrepancies():
                 print(i)
                 get_b = b_list[i]
                 print("FIND DIFFERENT key_dict:" + str(mapping_dict[key_dict]) +  "  b_list:" + str(get_b))
-            else:
-                print("DON'T FIND DIFFERENT  key_dict:"  + str(key_dict) + "  b_list:" + str(b_list[i]))    
-    
+            # else:
+            #    print("DON'T FIND DIFFERENT  key_dict:"  + str(key_dict) + "  b_list:" + str(b_list[i]))    
+
+
+spelling_discrepancies()
+#国名リストの比較。一致しないものがあったときに色々処理をする部分
+'''
 only_a_list = []
 count_a = count_b = 0
 for i in range(len(b_list)):
@@ -88,3 +92,4 @@ for i in range(len(only_a_list)):
 for i in range(len(only_b_list)):
     print("only_b_list  " + str(i) + ":" + str(only_b_list[i]))
 
+'''
